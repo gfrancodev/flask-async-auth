@@ -1,0 +1,30 @@
+// Mongodb, Postgres, Mysql/MariaDb, Sqlite 
+// GraphQL 
+
+model Users {
+    id String @id @default(uuid())
+    name String
+    username String @unique
+    email String @unique
+    password String
+    status Boolean @default(true)
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+}
+
+model Code {
+    id String @id @default(uuid())
+    code String 
+    type CodeType 
+    status Boolean @default(false)  
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+}
+
+enum CodeType {
+    CONFIRM_EMAIL
+    RESET_PASSWORD
+    ALTER_EMAIL
+    MFA 
+}
+

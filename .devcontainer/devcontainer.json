@@ -1,0 +1,12 @@
+{
+	"name": "auth-workspace",
+	"image": "mcr.microsoft.com/devcontainers/python:1-3-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {},
+		"ghcr.io/devcontainers-contrib/features/black:2": {},
+		"ghcr.io/devcontainers-contrib/features/coverage-py:2": {},
+		"ghcr.io/devcontainers-contrib/features/flake8:2": {},
+		"ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}
+	},
+	"postCreateCommand": "pip install -r requirements.txt"
+}
