@@ -1,2 +1,2 @@
 start:
-	python3 auth/main.py
+	python auth/main.py

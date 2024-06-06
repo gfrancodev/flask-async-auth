@@ -1,13 +1,12 @@
 from asyncio import sleep
 from flask import Blueprint, jsonify, request
-from datetime import datetime
 
 user = Blueprint('user', __name__, url_prefix='/v1/user')
 
 @user.route('/', methods=['POST'])
 async def create(): # Create
     await sleep(1)
-    return jsonify({ "message": "Usuário criado!"}), 201, { "Date": datetime.now()}
+    return jsonify({ "message": "Usuário criado!"}), 201
 
 @user.route('/', methods=['GET'])
 async def findAll(): # READ 
@@ -20,18 +19,18 @@ async def findAll(): # READ
         "text": text
     }]})
 
-@user.route('/<string:id>', methods=['GET']) # READ
-async def findOne(id):
+@user.route('/<string:id>', methods=['GET']) 
+def findOne(id):
     return jsonify({ "id": id })
 
 @user.route('/<string:id>', methods=['PUT'])
-async def update(id): # Update
+def update(id):
     return jsonify({ "id": id })
 
 @user.route('/<string:id>/status', methods=['PATCH'])
-async def update_status(id): # Update
+def update_status(id): 
     return jsonify({ "id": id })
 
 @user.route('/<string:id>', methods=['DELETE'])
-async def delete(id): # Delete
+def delete(id):
     return jsonify({ "id": id })

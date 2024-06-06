@@ -10,5 +10,6 @@ async def handle():
         use_colors=True,
         reload=True,
         reload_includes=["*.py"],
+        workers=10
     )
     await server
